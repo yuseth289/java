@@ -1,4 +1,5 @@
-public class Personaje {
+package examen;
+public class Personajes {
     private String nombre;
     private String fruta;
     private Boolean bueno;
@@ -6,7 +7,7 @@ public class Personaje {
     private Integer vida;
     private Integer ataque;
 
-    public Personaje(String nombre, String fruta, Boolean bueno, Integer recompensa, Integer vida, Integer ataque) {
+    public Personajes(String nombre, String fruta, Boolean bueno, Integer recompensa, Integer vida, Integer ataque) {
         this.nombre = nombre;
         this.fruta = fruta;
         this.bueno = bueno;
@@ -31,19 +32,19 @@ public class Personaje {
         System.out.println("El ataque es: " + ataque);
     }
 
-    public void pelea(Personaje enemigo) {
+    public void pelea(Personajes enemigo) {
         System.out.println(nombre + " ataca a " + enemigo.nombre + " causando " + ataque + " de daño.");
         enemigo.vida -= this.ataque;
         System.out.println("La vida de " + enemigo.nombre + " ahora es " + enemigo.vida);
     }
 
-    public void cura(Personaje aliado) {
+    public void cura(Personajes aliado) {
         System.out.println(nombre + " cura a " + aliado.nombre + " sumando " + vida + " puntos de vida.");
         aliado.vida += this.vida;
         System.out.println("La vida de " + aliado.nombre + " ahora es " + aliado.vida);
     }
 
-    public void proteje(Personaje aliado, Personaje enemigo) {
+    public void proteje(Personajes aliado, Personajes enemigo) {
         System.out.println(nombre + " se interpone y protege a " + aliado.nombre + " del ataque de " + enemigo.nombre);
         this.vida -= enemigo.ataque;
         System.out.println(nombre + " ahora tiene " + this.vida + " de vida.");
@@ -53,7 +54,7 @@ public class Personaje {
         System.out.println(nombre + " intenta transformarse... pero no ocurre nada especial.");
     }
 
-    static class Powerup extends Personaje {
+    static class Powerup extends Personajes {
         private int vidaExtra;
         private int ataqueExtra;
 
@@ -76,12 +77,12 @@ public class Personaje {
 
 
     public static void main(String[] args) {
-        Personaje luffy = new Personaje("Luffy", "Gomu no mi", true,15000000 , 500, 400);
-        Personaje kurogige = new Personaje("Kurogige", "Yami Yami no mi", true,35000000, 500, 400);
-        Personaje chopper = new Personaje("Chopper", "Hito Hito no mi", true,100, 500, 300);
-        Personaje Law = new Personaje("Law", "Ope Ope no mi", true,1000, 400, 240);
+        Personajes luffy = new Personajes("Luffy", "Gomu no mi", true,15000000 , 500, 400);
+        Personajes kurogige = new Personajes("Kurogige", "Yami Yami no mi", true,35000000, 500, 400);
+        Personajes chopper = new Personajes("Chopper", "Hito Hito no mi", true,100, 500, 300);
+        Personajes Law = new Personajes("Law", "Ope Ope no mi", true,1000, 400, 240);
         
-        Personaje luffyPower = new Powerup("Luffy", "Gomu no mi", true, 30000000, 500, 400);
+        Personajes luffyPower = new Powerup("Luffy", "Gomu no mi", true, 30000000, 500, 400);
 
         luffy.pelea(kurogige);
         chopper.cura(luffy);
