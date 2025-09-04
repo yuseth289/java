@@ -13,7 +13,7 @@ public class Bicicleta extends Transporte {
 
     @Override
     public void detener() {
-        System.out.println("La bicicleta se paro");
+        System.out.println("La bicicleta se freno");
     }
 
     @Override
